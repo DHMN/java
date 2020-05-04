@@ -15,10 +15,6 @@ public class Main {
 //    bj.kaynnista();
         System.out.println("Testaus gitin kanssa");
         System.out.println("Tomin muutos");
-<<<<<<< HEAD
         System.out.println("Uudestaan muutosta");
-=======
-        System.out.println("Tomin toinen testi");
->>>>>>> bbbe309726ba0cb7eb3bad6bb9f2b26d37a803c8
     }
 }

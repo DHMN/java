@@ -4,9 +4,8 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Blackjack {
-
     private Scanner sc;
-    private Korttipakka kortit;
+    private Korttipakka pakka;
     private PelaajanKasi pelaajanKasi;
 
     public static void main(String[] args) {
@@ -36,22 +35,44 @@ public class Blackjack {
 
     public Blackjack() {
         sc = new Scanner(System.in);
-        this.kortit = new Korttipakka();
-//        this.pelaajanKasi = new PelaajanKasi();
+        this.pakka = new Korttipakka();
+        this.pelaajanKasi = new PelaajanKasi(pakka);
 
     }
 
-    public static void annaKorttiPelaajalle() {
-//        Kortti kortti = kortit.jaaKortti();
-//        pelaajanKasi.otaKortti(kortti);
-//        System.out.println("Sait kortin " + kortti);
+    public void annaKorttiPelaajalle() {
+        Kortti kortti = pakka.jaaKortti();
+        pelaajanKasi.otaKortti(kortti);
+        System.out.println("Sait kortin " + kortti);
     }
 
     public void kaynnista() {
-        kortit.sekoita();
-        annaKorttiPelaajalle();
-        annaKorttiPelaajalle();
+//        System.out.println("sekoitetaan");
+//        pakka.sekoita();
+//        System.out.println("annetaan kortit pelaajalle 2x");
+//        annaKorttiPelaajalle();
+//        annaKorttiPelaajalle();
+        int summa = pelaajanKasi.getKasiArvo();
+        System.out.println("Olet tuloksessa " + summa + "\n");
+        jaaLisakortitPelaajalle();
+    }
 
+    public void jaaLisakortitPelaajalle() {
+        int summa = pelaajanKasi.getKasiArvo();
+        System.out.println("summa on " + summa);
+        String vastaus = "k";
+        //jaetaan lisäkortteja niin kauan kuin käyttäjä haluaa
+//        while (summa < 21 && vastaus.equalsIgnoreCase("k")) {
+//            System.out.println("Haluatko lisäkortin (k/e)?");
+//            vastaus = sc.nextLine();
+//            if (vastaus.equalsIgnoreCase("k")) {
+//                annaKorttiPelaajalle();
+//                summa = pelaajanKasi.getKasiArvo();
+//                
+//                
+//                System.out.println("Olet tuloksessa " + summa);
+//            }
+//        }
     }
 //
 //    public void sekoita() {

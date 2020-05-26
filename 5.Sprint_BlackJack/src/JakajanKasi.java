@@ -1,24 +1,23 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PelaajanKasi {
+public class JakajanKasi {
 
     private Scanner sc;
     private int yhteensa;
     private int kasiSumma;
     private int uuskortti = 2;
-    private ArrayList<Kortti> kortitKadessa = new ArrayList<>();
+    private ArrayList<Kortti> jakajanKortit = new ArrayList<>();
 
-    public PelaajanKasi(Korttipakka pakka) {
+    public JakajanKasi(Korttipakka pakka) {
         sc = new Scanner(System.in);
         this.yhteensa = 0;
 
-        System.out.println("public Pelaajankasi");
+        System.out.println("public Jakajankasi");
         for (int i = 0; i < 2; i++) {
-            kortitKadessa.add(pakka.jaaKortti());
+            jakajanKortit.add(pakka.jaaKortti());
         }
-        for (Kortti k : kortitKadessa) {
+        for (Kortti k : jakajanKortit) {
             kasiSumma = k.getArvo();
             System.out.println(k);
             selvitaSumma(kasiSumma);
@@ -29,8 +28,8 @@ public class PelaajanKasi {
             String s = sc.nextLine();
 
             if (s.equalsIgnoreCase("k")) {
-                kortitKadessa.add(pakka.jaaKortti());
-                otaKortti();
+                jakajanKortit.add(pakka.jaaKortti());
+                otaJakajanKortti();
             }
             uuskortti++;
         }
@@ -38,9 +37,9 @@ public class PelaajanKasi {
 
     // otaKortti 
     //lisää kortit-listaan parametrina saamansa kortin
-    public void otaKortti() {
-        System.out.println(kortitKadessa.get(uuskortti));
-        Kortti mustikka = kortitKadessa.get(uuskortti);
+    public void otaJakajanKortti() {
+        System.out.println(jakajanKortit.get(uuskortti));
+        Kortti mustikka = jakajanKortit.get(uuskortti);
         selvitaSumma(mustikka.getArvo());
     }
 
@@ -66,10 +65,10 @@ public class PelaajanKasi {
         }
         onkoBlackjack(yhteensa);
 
-        if (yhteensa > 21 && kortitKadessa.size() < 2) {
+        if (yhteensa > 21 && jakajanKortit.size() < 2) {
             yhteensa -= 10;
         }
-        if (yhteensa > 21 && kortitKadessa.size() > 2) {
+        if (yhteensa > 21 && jakajanKortit.size() > 2) {
             System.out.println("Hävisit! peli päättyy");
         }
 
@@ -79,7 +78,7 @@ public class PelaajanKasi {
 
     // tutkii onko kätenä blackjack
     public boolean onkoBlackjack(int yhteensa) {
-        if (kortitKadessa.size() == 2 && yhteensa == 21) {
+        if (jakajanKortit.size() == 2 && yhteensa == 21) {
             System.out.println("BlackJack");
             return true;
         }
@@ -89,8 +88,8 @@ public class PelaajanKasi {
     @Override
     public String toString() {
         String kasi = "";
-        for (int i = 0; i < kortitKadessa.size(); i++) {
-            kasi += kortitKadessa.get(i).toString() + " ";
+        for (int i = 0; i < jakajanKortit.size(); i++) {
+            kasi += jakajanKortit.get(i).toString() + " ";
         }
         return kasi;
     }

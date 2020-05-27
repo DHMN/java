@@ -1,8 +1,6 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Korttipakka {
 
@@ -11,32 +9,31 @@ public class Korttipakka {
     public Korttipakka(ArrayList<Kortti> pakka) {
         this.pakka = pakka;
     }
-
+    
+    //luodaan uusi korttipakka.
     public Korttipakka() {
-        List<String> maat = Kortti.getMaat();
-        List<Integer> arvot = Kortti.getArvot();
+        List<String> maat = Kortti.getMaat(); //luodaan lista maat(hertta,risti,etc.).
+        List<Integer> arvot = Kortti.getArvot(); //luodaan lista korttien arvot(numerot).
 
-        pakka = new ArrayList<>();  // size=0
-        for (String maa : maat) {  // "hertta" | size=4
-            for (Integer arvo : arvot) {  // 3 | size=13
-                pakka.add(new Kortti(arvo, maa));  //arvo:3, maa:"hertta" | pakka:size=1
+        pakka = new ArrayList<>();  // luodaan lista pakka.
+        for (String maa : maat) {  // käydään pakkalistan maat läpi.
+            for (Integer arvo : arvot) {  //käydään pakkalistan arvot läpi.
+                pakka.add(new Kortti(arvo, maa));  //Luo uudet kortit maa&arvo. 
             }
         }
         sekoita();
     }
 
-//
-//    // sekoita; sekoittaa atribuutin pakka korttien järjestyksen
     public void sekoita() {
-        Collections.shuffle(pakka);
+        Collections.shuffle(pakka); //Käyttää kirjaston komentoa sekoittaa pakka.
     }
 
-    // jaaKortti palauttaa pakan ekan kortin ja poistaa sen pakasta
+    //palauttaa pakan ekan kortin ja poistaa sen pakasta.
     public Kortti jaaKortti() {
         if (pakka.size() > 0) {
             return pakka.remove(0);
         }
-        return null; // pakka.get(0)
+        return null; // Jos pakka on loppu, palauttaa null arvon.
     }
 
     public void lisaaKortti(Kortti k) {
@@ -49,7 +46,6 @@ public class Korttipakka {
 
     @Override
     public String toString() {
-//        return "" + pakka;
         String str = "";
         for (Kortti k : this.pakka) {
             str += "\n " + "-" + k.toString();

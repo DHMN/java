@@ -7,13 +7,9 @@ public class Kortti {
     private int arvo;
     private String maa;
 
-//    public Kortti(int arvo, String maa) {
-//        this.arvo = arvo;
-//        this.maa = maa;
-//    }
     public Kortti(int arvo, String maa) {
-        setArvo(arvo);  //2
-        setMaa(maa);    //"hearts"
+        setArvo(arvo); //this.arvo = arvo;
+        setMaa(maa); //this.maa = maa;
     }
 
     public static List<Integer> getArvot() {
@@ -36,8 +32,7 @@ public class Kortti {
     }
 
     public void setMaa(String maa) {
-        List<String> maat = getMaat();
-//        maa = maa.toLowerCase();
+        List<String> maat = getMaat(); //maa = maa.toLowerCase();
         if (maat.contains(maa)) {
             this.maa = maa;
         }

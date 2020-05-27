@@ -1,6 +1,4 @@
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Blackjack {
@@ -18,8 +16,18 @@ public class Blackjack {
     public void kaynnista() {
         this.pakka = new Korttipakka();
         this.pelaajanKasi = new PelaajanKasi(pakka);
-        
-        System.out.println("Siirrytään jakajaan");
-        this.jakajanKasi = new JakajanKasi(pakka);
+
+        if (pelaajanKasi.onkoBlackjack(pelaajanKasi.selvitaSumma(0)) == false) {
+            this.jakajanKasi = new JakajanKasi(pakka);
+            kasienVertailu(pelaajanKasi.selvitaSumma(0), jakajanKasi.selvitaSumma(0));
+        }
+    }
+
+    public void kasienVertailu(int pelaajanArvo, int jakajanArvo) {
+        if ((pelaajanArvo > jakajanArvo && pelaajanArvo < 21 && jakajanArvo < 21) || (jakajanArvo > 21) || (pelaajanArvo == 21)) {
+            System.out.println("Voitit pelin.");
+        } else if (pelaajanArvo < jakajanArvo || jakajanArvo == 21 || jakajanArvo == pelaajanArvo || pelaajanArvo > 21) {
+            System.out.println("Jakaja voitti pelin.");
+        }
     }
 }

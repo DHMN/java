@@ -45,14 +45,14 @@ public class PelaajanKasi {
     }
 
     //lisätään kortti pelaajan käteen.
-    public void otaKortti() {
+    public void otaKortti() { // add kortti, saadusta parametrista
         System.out.println("Nostit kortin: " + kortitKadessa.get(uusiKortti));
         Kortti x = kortitKadessa.get(uusiKortti);
         selvitaSumma(x.getArvo());
     }
 
     //selvittää pelaajan käden summan seuraavin säännöin
-    public int selvitaSumma(int kasiSumma) {
+    public int selvitaSumma(int kasiSumma) { // tutkii pelkästään käsilistaa
 
         if (kasiSumma > 1 && kasiSumma < 11) { //Tässä on 2-10 numero.
             yhteensa += kasiSumma;
@@ -70,7 +70,7 @@ public class PelaajanKasi {
     }
 
     // tutkii onko kätenä blackjack
-    public boolean onkoBlackjack(int yhteensa) {
+    public boolean onkoBlackjack(int yhteensa) { // Kutsu selvitä summa
         if (yhteensa > 21) {
             System.out.println("\nHävisit pelin.");
             return true;

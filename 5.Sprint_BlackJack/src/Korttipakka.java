@@ -1,54 +1,48 @@
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Korttipakka {
-
     private ArrayList<Kortti> pakka;
 
-    public Korttipakka(ArrayList<Kortti> pakka) {
-        this.pakka = pakka;
-    }
     
-    //luodaan uusi korttipakka.
-    public Korttipakka() {
-        List<String> maat = Kortti.getMaat(); //luodaan lista maat(hertta,risti,etc.).
-        List<Integer> arvot = Kortti.getArvot(); //luodaan lista korttien arvot(numerot).
+    public Korttipakka(int maara) {
+//        List<String> maat = Kortti.getMaa();
+//        List<Integer> arvot = Kortti.getArvo();
+        List<String> maat = Arrays.asList("hearts", "diamonds", "spades", "clubs");
+        List<Integer> arvot = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11/*jack*/, 12/*queen*/, 13/*king*/, 14/*ace*/);
 
-        pakka = new ArrayList<>();  // luodaan lista pakka.
-        for (String maa : maat) {  // käydään pakkalistan maat läpi.
-            for (Integer arvo : arvot) {  //käydään pakkalistan arvot läpi.
-                pakka.add(new Kortti(arvo, maa));  //Luo uudet kortit maa&arvo. 
+        pakka = new ArrayList<>();  // size=0
+        for (String maa : maat) {  // "hertta" | size=4
+            for (Integer arvo : arvot) {  // 3 | size=13
+                pakka.add(new Kortti(arvo, maa));  //arvo:3, maa:"hertta" | pakka:size=1
             }
         }
-        sekoita();
     }
 
+//
+//    // sekoita; sekoittaa atribuutin pakka korttien järjestyksen
     public void sekoita() {
-        Collections.shuffle(pakka); //Käyttää kirjaston komentoa sekoittaa pakka.
+        Collections.shuffle(pakka);
     }
 
-    //palauttaa pakan ekan kortin ja poistaa sen pakasta.
+    // jaaKortti palauttaa pakan ekan kortin ja poistaa sen pakasta
     public Kortti jaaKortti() {
         if (pakka.size() > 0) {
             return pakka.remove(0);
         }
-        return null; // Jos pakka on loppu, palauttaa null arvon.
-    }
-
-    public void lisaaKortti(Kortti k) {
-        this.pakka.add(k);
-    }
-
-    public Kortti getKortti(int i) {
-        return this.pakka.get(i);
+        return null; // pakka.get(0)
     }
 
     @Override
     public String toString() {
+//        return "" + pakka;
         String str = "";
         for (Kortti k : this.pakka) {
-            str += "\n " + "-" + k.toString();
+            str += "\n" + k.toString();
         }
         return str;
     }

@@ -70,7 +70,7 @@ public class PelaajanKasi {
     }
 
     // tutkii onko kätenä blackjack
-    public boolean onkoBlackjack(int yhteensa) { // Kutsu selvitä summa
+    public boolean onkoBlackjack(int yhteensa) { // Kutsu selvitä summa metodin sisällä
         if (yhteensa > 21) {
             System.out.println("\nHävisit pelin.");
             return true;

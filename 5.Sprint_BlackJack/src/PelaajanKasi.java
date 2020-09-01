@@ -1,85 +1,75 @@
 //
 //import java.util.ArrayList;
-//import java.util.Scanner;
 //
 //public class PelaajanKasi {
-//
-//    private Scanner sc;
-//    private int yhteensa;
-//    private int kasiSumma;
-//    private int uusiKortti = 2;
 //    private ArrayList<Kortti> kortitKadessa = new ArrayList<>();
 //
-//    public PelaajanKasi(Korttipakka pakka) {
-//        sc = new Scanner(System.in);
-//        this.yhteensa = 0;
+//    public PelaajanKasi() {
 //
-//        System.out.println("Pelaajankäsi.");
 //        for (int i = 0; i < 2; i++) {
 //            kortitKadessa.add(pakka.jaaKortti());
 //        }
 //        for (Kortti k : kortitKadessa) {
-//            kasiSumma = k.getArvo();
+//
 //            System.out.println(k);
-//            selvitaSumma(kasiSumma);
 //        }
-//        System.out.println("Pelaajan korttien summa: " + yhteensa);
+//        System.out.println("Testi 1");
 //
-//        while (yhteensa < 21) {
-//            System.out.println("\nHaluatko uuden kortin? (k/e)");
-//            String s = sc.nextLine();
 //
-//            if (s.equalsIgnoreCase("k")) {
-//                kortitKadessa.add(pakka.jaaKortti());
-//                System.out.println();
-//                otaKortti();
-//            } else if (s.equalsIgnoreCase("e")) {
-//                break;
-//            } else {
-//                System.out.println("Etkö osaa lukea!");
-//                continue;
-//            }
-//            System.out.println("Pelaajan korttien summa: " + yhteensa);
-//            uusiKortti++;
-//        }
 //    }
 //
-//    //lisätään kortti pelaajan käteen.
-//    public void otaKortti() { // add kortti, saadusta parametrista
-//        System.out.println("Nostit kortin: " + kortitKadessa.get(uusiKortti));
-//        Kortti x = kortitKadessa.get(uusiKortti);
-//        selvitaSumma(x.getArvo());
+//    public ArrayList<Kortti> getKortit() {
+//        return kortitKadessa;
 //    }
 //
+//    // otaKortti
+//    //lisää kortit-listaan parametrina saamansa kortin
+//    public void otaKortti(Kortti k) {
+//        this.kortitKadessa.add(k);
+//    }
+//
+//    // selvitaSumma
 //    //selvittää pelaajan käden summan seuraavin säännöin
-//    public int selvitaSumma(int kasiSumma) { // tutkii pelkästään käsilistaa
+//    public int selvitaSumma(int kasiSumma) {
+//        //int kasiSumm4 = kasiSumma;
+//        int yhteensa = 0;
+//        System.out.println("Aletaan laskemaan summaa");
+//        for (Kortti k : kortitKadessa) {
+//            if (k.getArvo() > 1 && k.getArvo() < 11) {
+//                yhteensa += k.getArvo();
+//                System.out.println("Tässä oli 2-10 numero");
+//            }
+//            if (k.getArvo() > 10 && k.getArvo() < 14) {
+//                yhteensa += 10;
+//                System.out.println("Tästä pitäisi tulla 10");
+//            }
+//            if (k.getArvo() == 1) {
+//                yhteensa += 11;
+//                System.out.println("Tässä oli ässä");
+//            }
+//            if (k.getArvo() == 14) {
+//                yhteensa += 11;
+//                System.out.println("Ässä 14");
+//            }
+//            onkoBlackjack(yhteensa);
 //
-//        if (kasiSumma > 1 && kasiSumma < 11) { //Tässä on 2-10 numero.
-//            yhteensa += kasiSumma;
 //        }
-//        if (kasiSumma > 10 && kasiSumma < 14) { //Tästä pitäisi tulla 10.
-//            yhteensa += 10;
-//        }
-//        if (kasiSumma == 14) { //Tässä muutetaan ässän arvo 11.
-//            yhteensa += 11;
-//        }
-//        if (yhteensa > 21 && kortitKadessa.size() < 2) { //Tässä muutetaan toinen ässä 1 ja toinen on 11. Kun pelaaja saa 2 ässää alussa.
+//
+//        if (yhteensa > 21) {
 //            yhteensa -= 10;
 //        }
+//        System.out.println("Käden yhteissumma: "+yhteensa);
 //        return yhteensa;
 //    }
 //
+//
 //    // tutkii onko kätenä blackjack
-//    public boolean onkoBlackjack(int yhteensa) { // Kutsu selvitä summa
-//        if (yhteensa > 21) {
-//            System.out.println("\nHävisit pelin.");
+//    public boolean onkoBlackjack(int yhteensa) {
+//        if (kortitKadessa.size() == 2 && yhteensa== 21) {
+//            System.out.println("BlackJack");
 //            return true;
-//        } else if (yhteensa == 21) {
-//            System.out.println("\nSait Blackjackin. Voitit pelin.");
-//            return true;
-//        } else {
-//            return false;
 //        }
+//        return false;
 //    }
 //
 //    @Override
@@ -90,4 +80,6 @@
 //        }
 //        return kasi;
 //    }
+//
+//
 //}

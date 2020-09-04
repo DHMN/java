@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/s2000317/sovelluskehitys/project/5.Sprint_BlackJack/src/Main.java</file>
             <file>file:/C:/Users/s2000317/sovelluskehitys/project/5.Sprint_BlackJack/src/Kortti.java</file>
             <file>file:/C:/Users/s2000317/sovelluskehitys/project/5.Sprint_BlackJack/src/Korttipakka.java</file>
             <file>file:/C:/Users/s2000317/sovelluskehitys/project/5.Sprint_BlackJack/src/Blackjack.java</file>
+=======
+            <file>file:/C:/Users/s2000321/Documents/NetBeansProjects/5.Sprint_BlackJack_omaaa/src/JakajanKasi.java</file>
+            <file>file:/C:/Users/s2000321/Documents/NetBeansProjects/5.Sprint_BlackJack_omaaa/src/PelaajanKasi.java</file>
+            <file>file:/C:/Users/s2000321/Documents/NetBeansProjects/5.Sprint_BlackJack_omaaa/src/Blackjack.java</file>
+>>>>>>> 4c9faf531e9148008ff137f7e45bdc5e7f1818c2
         </group>
     </open-files>
 </project-private>

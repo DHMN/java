@@ -8,12 +8,8 @@ public class Main {
 //        Kortti k = new Kortti(3, "diamonds");
 //        System.out.println(k);
         
-        Korttipakka pakka = new Korttipakka(1);
-//        pakka.sekoita();
-        System.out.println(pakka);
-        System.out.println("jaaKortti");
-        pakka.jaaKortti();
-        System.out.println(pakka);
+    Korttipakka pakka = new Korttipakka();
+        
 
 //    BlackJack bj = BlackJack();
 //    bj.kaynnista();

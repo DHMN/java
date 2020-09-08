@@ -28,7 +28,7 @@ public class PelaajanKasi {
                 //System.out.println("Tästä pitäisi tulla 10");
             }
             if (k.getArvo() == 14) {
-                if ((yhteensa + k.getArvo()) > 21) {
+                if ((yhteensa + 11) > 21) {
                     yhteensa++;
                 } else {
                     yhteensa += 11;

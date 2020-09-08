@@ -37,7 +37,7 @@ public class Blackjack {
 
         while (true) {
 
-            if (jakajanKasi < 15 && pelaajanKasi.selvitaSumma() <= 21) {
+            if (jakajanKasi < 15 && pelaajanKasi.selvitaSumma() <= 20 && pelaajanKasi.kortit.size() > 2) {
                 System.out.println("\nJakaja nosti kortin " + korttipakka.pakka.get(0));
 
                 muuttuja = korttipakka.jaaKortti().getArvo();
@@ -51,7 +51,7 @@ public class Blackjack {
                     //System.out.println("Tästä pitäisi tulla 10");
                 }
                 if (muuttuja == 14) {
-                    if ((muuttuja + jakajanKasi) > 21) {
+                    if ((jakajanKasi + 11) > 21) {
                         jakajanKasi++;
                     } else {
                         jakajanKasi += 11;

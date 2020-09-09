@@ -6,15 +6,19 @@ public class Blackjack {
     public static void main(String[] args) {
 
         int jakajanKasi = 0;
-        int muuttuja = 0;
+        int muuttuja;
 
         Scanner sc = new Scanner(System.in);
         Korttipakka korttipakka = new Korttipakka(1);
         PelaajanKasi pelaajanKasi = new PelaajanKasi();
+        
         korttipakka.sekoita();
+        
         System.out.println("Aloitetaan peli");
+        
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());
+        
         System.out.println("Pelaajan käden yhteissumma: " + pelaajanKasi.selvitaSumma());
 
         while (pelaajanKasi.selvitaSumma() < 21) {
@@ -36,7 +40,7 @@ public class Blackjack {
 
         while (true) {
 
-            if (pelaajanKasi.kortit.size() == 2 && pelaajanKasi.selvitaSumma() == 21) {
+            if (pelaajanKasi.onkoBlackjack()) {
                 break;
 
             } else if (jakajanKasi < 15 && pelaajanKasi.selvitaSumma() <= 21) {
@@ -52,7 +56,7 @@ public class Blackjack {
                     jakajanKasi += 10;
                     //System.out.println("Tästä pitäisi tulla 10");
                 }
-                if (muuttuja == 14) {
+                if (muuttuja == 1) {
                     
                     if ((jakajanKasi + 11) > 21) {
                         jakajanKasi++;

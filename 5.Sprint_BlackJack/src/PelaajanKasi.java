@@ -27,27 +27,28 @@ public class PelaajanKasi {
                 yhteensa += 10;
                 //System.out.println("Tästä pitäisi tulla 10");
             }
-            if (k.getArvo() == 14) {
+            if (k.getArvo() == 1) {
                 if ((yhteensa + 11) > 21) {
                     yhteensa++;
                 } else {
                     yhteensa += 11;
                 }
             }
-            onkoBlackjack(yhteensa);
+            
+           
 
         }
 
-        if (yhteensa > 21 && kortit.size() == 2) {
-            yhteensa -= 10;
-        }
+//        if (yhteensa > 21 && kortit.size() == 2) {
+//            yhteensa -= 10;
+//        }
         //System.out.println("Käden yhteissumma: " + yhteensa);
         return yhteensa;
     }
 
     // tutkii onko kätenä blackjack
-    public boolean onkoBlackjack(int yhteensa) {
-        if (kortit.size() == 2 && yhteensa == 21) {
+    public boolean onkoBlackjack() {
+        if (kortit.size() == 2 && selvitaSumma() == 21) {
             //System.out.println("BlackJack");
             return true;
         }

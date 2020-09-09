@@ -10,7 +10,7 @@ public class Korttipakka {
 
     public Korttipakka(int korttipakkojenMaara) {
         List<String> maat = Arrays.asList("hearts", "diamonds", "spades", "clubs");
-        List<Integer> arvot = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11/*jack*/, 12/*queen*/, 13/*king*/, 14/*ace*/);
+        List<Integer> arvot = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11/*jack*/, 12/*queen*/, 13/*king*/, 1/*ace*/);
 
         pakka = new ArrayList<>();  // size=0
         for (int i = 0; i < korttipakkojenMaara; i++) {

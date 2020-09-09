@@ -10,13 +10,10 @@ public class PelaajanKasi {
 
     public void otaKortti(Kortti k) {
         this.kortit.add(k);
-        // System.out.println("Pelaajan kädessä olevat kortit: " + kortit);
-        System.out.println("Pelaajan nosti kortin " + k);
     }
 
     public int selvitaSumma() {
         int yhteensa = 0;
-        //System.out.println("Aletaan laskemaan summaa");
 
         for (Kortti k : kortit) {
             if (k.getArvo() > 1 && k.getArvo() < 11) {
@@ -39,17 +36,12 @@ public class PelaajanKasi {
 
         }
 
-//        if (yhteensa > 21 && kortit.size() == 2) {
-//            yhteensa -= 10;
-//        }
-        //System.out.println("Käden yhteissumma: " + yhteensa);
         return yhteensa;
     }
 
     // tutkii onko kätenä blackjack
     public boolean onkoBlackjack() {
         if (kortit.size() == 2 && selvitaSumma() == 21) {
-            //System.out.println("BlackJack");
             return true;
         }
         return false;

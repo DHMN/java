@@ -9,10 +9,15 @@ public class Blackjack {
         int muuttuja = 0;
 
         Scanner sc = new Scanner(System.in);
-        Korttipakka korttipakka = new Korttipakka(2);
+        Korttipakka korttipakka = new Korttipakka(1);
         PelaajanKasi pelaajanKasi = new PelaajanKasi();
+<<<<<<< HEAD
         korttipakka.sekoita();
         System.out.println(korttipakka);
+=======
+
+        korttipakka.sekoita();
+>>>>>>> cd1d7c6df5bef580dc4a6832eb51a1820efce41c
         System.out.println("Aloitetaan peli");
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());
@@ -37,7 +42,10 @@ public class Blackjack {
 
         while (true) {
 
-            if (jakajanKasi < 15 && pelaajanKasi.selvitaSumma() <= 20 && pelaajanKasi.selvitaSumma() != 21) {
+            if (pelaajanKasi.kortit.size() == 2 && pelaajanKasi.selvitaSumma() == 21) {
+                break;
+
+            } else if (jakajanKasi < 15 && pelaajanKasi.selvitaSumma() <= 21) {
                 System.out.println("\nJakaja nosti kortin " + korttipakka.pakka.get(0));
 
                 muuttuja = korttipakka.jaaKortti().getArvo();
@@ -51,6 +59,7 @@ public class Blackjack {
                     //System.out.println("Tästä pitäisi tulla 10");
                 }
                 if (muuttuja == 14) {
+                    
                     if ((jakajanKasi + 11) > 21) {
                         jakajanKasi++;
                     } else {
@@ -69,11 +78,19 @@ public class Blackjack {
         if (pelaajanKasi.selvitaSumma() <= 21) {
 
             if (jakajanKasi < pelaajanKasi.selvitaSumma() || jakajanKasi > 21) {
-                System.out.println("\nPelaajan käsi: " + pelaajanKasi.selvitaSumma());
-                System.out.println("Jakajan käsi: " + jakajanKasi);
-                System.out.println("\nPelaaja voittaa!");
+                
+                if (pelaajanKasi.selvitaSumma() == 21 && pelaajanKasi.kortit.size() == 2) {
+                    System.out.println("\nPelaajalla BlackJack!");
+                    System.out.println("\nPelaaja voittaa!");
+
+                } else {
+                    System.out.println("\nPelaajan käsi: " + pelaajanKasi.selvitaSumma());
+                    System.out.println("Jakajan käsi: " + jakajanKasi);
+                    System.out.println("\nPelaaja voittaa!");
+                }
 
             } else if (jakajanKasi > pelaajanKasi.selvitaSumma() && jakajanKasi <= 21) {
+
                 System.out.println("\nPelaajan käsi: " + pelaajanKasi.selvitaSumma());
                 System.out.println("Jakajan käsi: " + jakajanKasi);
                 System.out.println("\nJakaja voittaa!");

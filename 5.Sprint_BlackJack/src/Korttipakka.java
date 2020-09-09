@@ -22,7 +22,7 @@ public class Korttipakka {
         }
     }
 
-    // sekoita; sekoittaa atribuutin pakka korttien järjestyksen
+    // sekoittaa atribuutin pakka korttien järjestyksen
     public void sekoita() {
         Collections.shuffle(pakka);
     }

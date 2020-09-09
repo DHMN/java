@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Korttipakka {
 
@@ -23,7 +22,7 @@ public class Korttipakka {
         }
     }
 
-    // sekoita; sekoittaa atribuutin pakka korttien järjestyksen
+    // sekoittaa atribuutin pakka korttien järjestyksen
     public void sekoita() {
         Collections.shuffle(pakka);
     }

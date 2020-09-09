@@ -11,13 +11,7 @@ public class Blackjack {
         Scanner sc = new Scanner(System.in);
         Korttipakka korttipakka = new Korttipakka(1);
         PelaajanKasi pelaajanKasi = new PelaajanKasi();
-<<<<<<< HEAD
         korttipakka.sekoita();
-        System.out.println(korttipakka);
-=======
-
-        korttipakka.sekoita();
->>>>>>> cd1d7c6df5bef580dc4a6832eb51a1820efce41c
         System.out.println("Aloitetaan peli");
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());

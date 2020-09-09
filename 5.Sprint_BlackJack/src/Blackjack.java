@@ -9,10 +9,10 @@ public class Blackjack {
         int muuttuja = 0;
 
         Scanner sc = new Scanner(System.in);
-        Korttipakka korttipakka = new Korttipakka(1);
+        Korttipakka korttipakka = new Korttipakka(2);
         PelaajanKasi pelaajanKasi = new PelaajanKasi();
-
-        korttipakka.sekoita();
+        System.out.println(korttipakka);
+        //korttipakka.sekoita();
         System.out.println("Aloitetaan peli");
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());
         pelaajanKasi.otaKortti(korttipakka.jaaKortti());

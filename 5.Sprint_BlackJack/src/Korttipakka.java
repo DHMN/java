@@ -14,9 +14,11 @@ public class Korttipakka {
         List<Integer> arvot = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11/*jack*/, 12/*queen*/, 13/*king*/, 14/*ace*/);
 
         pakka = new ArrayList<>();  // size=0
-        for (String maa : maat) {  // "hertta" | size=4
-            for (Integer arvo : arvot) {  // 3 | size=13
-                pakka.add(new Kortti(arvo, maa));  //arvo:3, maa:"hertta" | pakka:size=1
+        for (int i = 0; i < korttipakkojenMaara; i++) {
+            for (String maa : maat) {  // "hertta" | size=4
+                for (Integer arvo : arvot) {  // 3 | size=13
+                    pakka.add(new Kortti(arvo, maa));  //arvo:3, maa:"hertta" | pakka:size=1
+                }
             }
         }
     }
